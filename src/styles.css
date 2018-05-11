@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+body {
+  background: url(https://images.pexels.com/photos/1018350/pexels-photo-1018350.jpeg) center center/cover no-repeat fixed
+}
+
+mat-icon {
+  font-size: 38px;
+  width: 38px;
+  height: 38px;
+}

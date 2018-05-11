@@ -1,0 +1,24 @@
+<mat-card class="card">
+  <img mat-card-avatar class="card-avatar" src="https://source.unsplash.com/random">
+  <mat-card-title>Erics template for angular projects</mat-card-title>
+  <mat-card-subtitle>He is so cool!</mat-card-subtitle>
+  <mat-card-content>
+    <div *ngIf="post != undefined">
+      <h2>{{post.title}}</h2>
+      <h5>{{post.body}}</h5>
+    </div>
+    <div *ngIf="post == undefined">
+      <mat-spinner style="margin-right: auto; margin-left: auto"></mat-spinner>
+    </div>
+
+    <div class="gmap">
+      <agm-map [latitude]="lan" [longitude]="lag" [zoom]="12">
+        <agm-marker [latitude]="lan" [longitude]="lag"
+                    [markerClickable]="true" (markerClick)="openSnackBar()"></agm-marker>
+      </agm-map>
+    </div>
+
+  </mat-card-content>
+
+
+</mat-card>

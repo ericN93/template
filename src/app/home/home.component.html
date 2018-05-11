@@ -1,0 +1,52 @@
+<mat-card class="card">
+
+  <img mat-card-avatar class="card-avatar" src="https://source.unsplash.com/random">
+  <i class="material-icons" (click)="logOut()" style="float: right">exit_to_app</i>
+
+  <mat-card-title>Erics template for angular projects</mat-card-title>
+  <mat-card-subtitle>Logged In as: {{loggedInUser}}</mat-card-subtitle>
+
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="View in row">
+        <div *ngFor="let post of posts" (click)="openDialog(post)">
+          <div class="post">
+            <h3>{{post.title}}</h3>
+            <p>{{post.body}}</p>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="View in list">
+        <div class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <a routerLink="/detailed/{{element.id}}" routerLinkActive="active">{{element.id}}</a>
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+              <mat-header-cell *matHeaderCellDef> title </mat-header-cell>
+              <mat-cell *matCellDef="let element" (click)="goToDetailedPost(element.id)"> {{element.title}} </mat-cell>
+            </ng-container>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <mat-paginator #paginator
+                         [pageSize]="10"
+                         [pageSizeOptions]="[5, 10, 20]"
+                         [showFirstLastButtons]="true">
+          </mat-paginator>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+  </mat-card-content>
+</mat-card>
+
+
